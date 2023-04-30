@@ -66,6 +66,7 @@ d. Aktuator jumlah pengunjung (0 - 2500 pengunjung/bulan)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 c. Membuat kerangka tampilan UI dari dashboard Node-Red
+
 <img width="285" alt="image" src="https://user-images.githubusercontent.com/62742933/235365058-a3767a58-e793-417e-9189-f78b168e20e1.png">
 <img width="278" alt="image" src="https://user-images.githubusercontent.com/62742933/235365073-fc0bde8a-ea31-44be-98fe-992ff2d40209.png">
 <img width="277" alt="image" src="https://user-images.githubusercontent.com/62742933/235365083-a6f42e99-abad-4b15-b907-1257f592fa18.png">
