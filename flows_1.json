@@ -1,0 +1,3777 @@
+[
+    {
+        "id": "f8a491e9b09ced6a",
+        "type": "tab",
+        "label": "PraUAS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fb365716fc3b2abe",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1070,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bd64079876578bc3",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Smart Farm",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Smart Farm",
+        "payloadType": "str",
+        "x": 730,
+        "y": 100,
+        "wires": [
+            [
+                "fb365716fc3b2abe"
+            ]
+        ]
+    },
+    {
+        "id": "33b55e139478c2e7",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "aefed61cbadac624",
+                "87991e9c0b68a9ce",
+                "2283ec06f1883512"
+            ]
+        ]
+    },
+    {
+        "id": "d6a7d6cfc351efa5",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aefed61cbadac624",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "pH Sensor",
+        "low": "5",
+        "high": "9",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [
+                "d6a7d6cfc351efa5"
+            ]
+        ]
+    },
+    {
+        "id": "8871dfc4f8446baf",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 540,
+        "wires": [
+            [
+                "c097a12291db1252",
+                "adaf1da69c3205cf"
+            ]
+        ]
+    },
+    {
+        "id": "c097a12291db1252",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 51",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "2283ec06f1883512",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flow Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "c5a6bdc972a45cc7"
+            ]
+        ]
+    },
+    {
+        "id": "87991e9c0b68a9ce",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Liquid Level Sensor",
+        "low": "0",
+        "high": "12",
+        "inte": "true",
+        "property": "payload",
+        "x": 330,
+        "y": 460,
+        "wires": [
+            [
+                "86f855c1459bb739"
+            ]
+        ]
+    },
+    {
+        "id": "c5a6bdc972a45cc7",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "86f855c1459bb739",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7ed8115834e91969",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "5a14b1055fdff9fa",
+                "18b8b89f021e7b29"
+            ]
+        ]
+    },
+    {
+        "id": "48923bb3f6412b93",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "386411e2a3762589",
+                "438182b70c2d2422"
+            ]
+        ]
+    },
+    {
+        "id": "5a14b1055fdff9fa",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 52",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "386411e2a3762589",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 53",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ee46b3e92d023c44",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "0b83f5c31abe70ae",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "271974010499fcb5",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Susu Hewani dan Telur",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Susu Hewani dan Telur",
+        "payloadType": "str",
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "ee46b3e92d023c44"
+            ]
+        ]
+    },
+    {
+        "id": "94ff19f41915ba1e",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 930,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "43115a6ad63303bb",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Daging Merah",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Daging Merah",
+        "payloadType": "str",
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "94ff19f41915ba1e"
+            ]
+        ]
+    },
+    {
+        "id": "c7b673c846bf578e",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "4d3708b68ec92390",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "472846dcb17cc91a",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Daging Putih",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Daging Putih",
+        "payloadType": "str",
+        "x": 1310,
+        "y": 240,
+        "wires": [
+            [
+                "c7b673c846bf578e"
+            ]
+        ]
+    },
+    {
+        "id": "044a28be5646652c",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 730,
+        "y": 380,
+        "wires": [
+            [
+                "b552ddfc8eb6bdc1",
+                "91dacab7da06123d",
+                "186aa797e2837502"
+            ]
+        ]
+    },
+    {
+        "id": "a59ce2a9358dd6a3",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b552ddfc8eb6bdc1",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Voltage Sensor",
+        "low": "240",
+        "high": "2000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 320,
+        "wires": [
+            [
+                "a59ce2a9358dd6a3"
+            ]
+        ]
+    },
+    {
+        "id": "047c99ac32e47081",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "dbc212adb8579c67",
+                "9399791cb0c88c3e"
+            ]
+        ]
+    },
+    {
+        "id": "dbc212adb8579c67",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 54",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "186aa797e2837502",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Current Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 380,
+        "wires": [
+            [
+                "d4f5188a290bc932"
+            ]
+        ]
+    },
+    {
+        "id": "91dacab7da06123d",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flame Detector",
+        "low": "0",
+        "high": "260",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            [
+                "64b503c1e22d7d77"
+            ]
+        ]
+    },
+    {
+        "id": "d4f5188a290bc932",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/cs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "64b503c1e22d7d77",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "77331fd96853af11",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "smp/ps/cs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 600,
+        "wires": [
+            [
+                "6a188da2a954b942",
+                "fae16ee184fb45f1"
+            ]
+        ]
+    },
+    {
+        "id": "87340cd8ba517460",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 660,
+        "wires": [
+            [
+                "cb9cbb2165763297",
+                "1ed4b1f80bb63853"
+            ]
+        ]
+    },
+    {
+        "id": "6a188da2a954b942",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 55",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "cb9cbb2165763297",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 56",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "539e6ea05f0a2bdf",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1310,
+        "y": 380,
+        "wires": [
+            [
+                "f89015d968a0a126",
+                "429e07f3f6fbd2a1",
+                "19526487a01e9ea8"
+            ]
+        ]
+    },
+    {
+        "id": "1664eeb6b829f751",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f89015d968a0a126",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Temperature Sensor",
+        "low": "20",
+        "high": "28",
+        "inte": "true",
+        "property": "payload",
+        "x": 1520,
+        "y": 320,
+        "wires": [
+            [
+                "1664eeb6b829f751"
+            ]
+        ]
+    },
+    {
+        "id": "ded959749ab68610",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 540,
+        "wires": [
+            [
+                "96aa02a97a83aa2e",
+                "1eeab492721eb66e"
+            ]
+        ]
+    },
+    {
+        "id": "96aa02a97a83aa2e",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 57",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "19526487a01e9ea8",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Humidity Sensor",
+        "low": "20",
+        "high": "70",
+        "inte": "true",
+        "property": "payload",
+        "x": 1500,
+        "y": 380,
+        "wires": [
+            [
+                "6097f207655d56fd"
+            ]
+        ]
+    },
+    {
+        "id": "429e07f3f6fbd2a1",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "CO2 Sensor",
+        "low": "350",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 440,
+        "wires": [
+            [
+                "ac8d1fc71f0796ab"
+            ]
+        ]
+    },
+    {
+        "id": "6097f207655d56fd",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ac8d1fc71f0796ab",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1750,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f7e896aee1d9ad21",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 600,
+        "wires": [
+            [
+                "911d97c30bbe141a",
+                "a65d39d0546d3110"
+            ]
+        ]
+    },
+    {
+        "id": "a28133dedddfe2e5",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1330,
+        "y": 660,
+        "wires": [
+            [
+                "9d409867f3cb4648",
+                "4b03c33760b24d94"
+            ]
+        ]
+    },
+    {
+        "id": "911d97c30bbe141a",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 58",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "9d409867f3cb4648",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 59",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "adaf1da69c3205cf",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "pH Sensor",
+        "label": "pH",
+        "format": "{{value}}",
+        "min": "5",
+        "max": "9",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "18b8b89f021e7b29",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Output Flow Sensor",
+        "label": "liters per minute",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 340,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "438182b70c2d2422",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Liquid Level Sensor",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00f500",
+            "#e6e600",
+            "#ff0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 330,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "9399791cb0c88c3e",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Voltage Sensor",
+        "label": "Volt",
+        "format": "{{value}}",
+        "min": "240",
+        "max": "2000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "fae16ee184fb45f1",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Sensor",
+        "label": "Ampere",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1ed4b1f80bb63853",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Flame Detector",
+        "label": "nano meters wave length",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "260",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1eeab492721eb66e",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature Sensor",
+        "label": "Celcius degree",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "28",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1540,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a65d39d0546d3110",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Sensor",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "70",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4b03c33760b24d94",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2 Sensor",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "350",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1510,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f8727a48ae1fe48c",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1070,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "904a93b8eeec8b0e",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Smart Plantation",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Smart Plantation",
+        "payloadType": "str",
+        "x": 750,
+        "y": 800,
+        "wires": [
+            [
+                "f8727a48ae1fe48c"
+            ]
+        ]
+    },
+    {
+        "id": "d23d2e377cc3146e",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1100,
+        "wires": [
+            [
+                "3700b85c69149ca6",
+                "600967750355d58a",
+                "cf2542f96af3ed7d"
+            ]
+        ]
+    },
+    {
+        "id": "31288113e022746e",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3700b85c69149ca6",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "pH Sensor",
+        "low": "5",
+        "high": "9",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 1040,
+        "wires": [
+            [
+                "31288113e022746e"
+            ]
+        ]
+    },
+    {
+        "id": "5d5fbf328c478f84",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1240,
+        "wires": [
+            [
+                "421c7b7eebda20ca",
+                "4ee35a417ebd13fc"
+            ]
+        ]
+    },
+    {
+        "id": "421c7b7eebda20ca",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 60",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "cf2542f96af3ed7d",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flow Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 1100,
+        "wires": [
+            [
+                "e030ecc35a8d1c32"
+            ]
+        ]
+    },
+    {
+        "id": "600967750355d58a",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Liquid Level Sensor",
+        "low": "0",
+        "high": "12",
+        "inte": "true",
+        "property": "payload",
+        "x": 330,
+        "y": 1160,
+        "wires": [
+            [
+                "23df1fd5768e9c12"
+            ]
+        ]
+    },
+    {
+        "id": "e030ecc35a8d1c32",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "23df1fd5768e9c12",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "fbbc0ccd7a92bb43",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1300,
+        "wires": [
+            [
+                "5938247259225bd1",
+                "348f86608588d960"
+            ]
+        ]
+    },
+    {
+        "id": "0d778745e4bf136b",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1360,
+        "wires": [
+            [
+                "d4694a8acce40c97",
+                "7ab4ff4662d6d111"
+            ]
+        ]
+    },
+    {
+        "id": "5938247259225bd1",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 61",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "d4694a8acce40c97",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 62",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "06a5f12f2d759857",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "0b83f5c31abe70ae",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 390,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "5084fddaa5ac388b",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Sumber Karbohidrat",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Sumber Karbohidrat",
+        "payloadType": "str",
+        "x": 160,
+        "y": 940,
+        "wires": [
+            [
+                "06a5f12f2d759857"
+            ]
+        ]
+    },
+    {
+        "id": "7df2f26bcc096e6a",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 930,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "da7efb3057e98ae6",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Sayuran",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Sayuran",
+        "payloadType": "str",
+        "x": 720,
+        "y": 940,
+        "wires": [
+            [
+                "7df2f26bcc096e6a"
+            ]
+        ]
+    },
+    {
+        "id": "9204d131b8b38304",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "4d3708b68ec92390",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1650,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "59285f14a4278931",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Buah-buahan",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Buah-buahan",
+        "payloadType": "str",
+        "x": 1320,
+        "y": 940,
+        "wires": [
+            [
+                "9204d131b8b38304"
+            ]
+        ]
+    },
+    {
+        "id": "303233b04d441d4b",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 730,
+        "y": 1080,
+        "wires": [
+            [
+                "7f2655fb8818952c",
+                "1a484882a97be9f8",
+                "607aedf1c3fab195"
+            ]
+        ]
+    },
+    {
+        "id": "ddde11f30a4dde15",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "7f2655fb8818952c",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Voltage Sensor",
+        "low": "240",
+        "high": "2000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1020,
+        "wires": [
+            [
+                "ddde11f30a4dde15"
+            ]
+        ]
+    },
+    {
+        "id": "088a81b2c6c35845",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 1240,
+        "wires": [
+            [
+                "51205fa2046dde38",
+                "97fc5ae1e145bb3d"
+            ]
+        ]
+    },
+    {
+        "id": "51205fa2046dde38",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 63",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "607aedf1c3fab195",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Current Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1080,
+        "wires": [
+            [
+                "2f0d271a0f2083a9"
+            ]
+        ]
+    },
+    {
+        "id": "1a484882a97be9f8",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flame Detector",
+        "low": "0",
+        "high": "260",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1140,
+        "wires": [
+            [
+                "33525fa9828457f8"
+            ]
+        ]
+    },
+    {
+        "id": "2f0d271a0f2083a9",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/cs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "33525fa9828457f8",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "3c146d31f1b495b8",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "smp/ps/cs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 1300,
+        "wires": [
+            [
+                "0fbf15a200fc9db9",
+                "c14826cda45dc1ff"
+            ]
+        ]
+    },
+    {
+        "id": "2eb59563ecd75938",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 1360,
+        "wires": [
+            [
+                "ebe4e0d88fb8293d",
+                "09213681d9e652ec"
+            ]
+        ]
+    },
+    {
+        "id": "0fbf15a200fc9db9",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 64",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "ebe4e0d88fb8293d",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 65",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "9cf0a74278e314ed",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1310,
+        "y": 1080,
+        "wires": [
+            [
+                "b66d0bbdb15afd28",
+                "4816fecae546e0a6",
+                "909c4702e480aa7a"
+            ]
+        ]
+    },
+    {
+        "id": "18b375f576376a56",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "b66d0bbdb15afd28",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Temperature Sensor",
+        "low": "20",
+        "high": "28",
+        "inte": "true",
+        "property": "payload",
+        "x": 1520,
+        "y": 1020,
+        "wires": [
+            [
+                "18b375f576376a56"
+            ]
+        ]
+    },
+    {
+        "id": "c70f3224c4fa94cd",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 1240,
+        "wires": [
+            [
+                "e9d8f7d1d7a133ad",
+                "4f63759ce3a3aa43"
+            ]
+        ]
+    },
+    {
+        "id": "e9d8f7d1d7a133ad",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 66",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "909c4702e480aa7a",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Humidity Sensor",
+        "low": "20",
+        "high": "70",
+        "inte": "true",
+        "property": "payload",
+        "x": 1500,
+        "y": 1080,
+        "wires": [
+            [
+                "a05b9ca04353cd07"
+            ]
+        ]
+    },
+    {
+        "id": "4816fecae546e0a6",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "CO2 Sensor",
+        "low": "350",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 1140,
+        "wires": [
+            [
+                "8503e9c165d7c87b"
+            ]
+        ]
+    },
+    {
+        "id": "a05b9ca04353cd07",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "8503e9c165d7c87b",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1750,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "1696cf5f339da2dd",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 1300,
+        "wires": [
+            [
+                "0961f50ede36dfce",
+                "5b012d1677419734"
+            ]
+        ]
+    },
+    {
+        "id": "a342e6a7c9ddf56b",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1330,
+        "y": 1360,
+        "wires": [
+            [
+                "b2467aaf3faa4a9b",
+                "926bbadfaade86bf"
+            ]
+        ]
+    },
+    {
+        "id": "0961f50ede36dfce",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 67",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "b2467aaf3faa4a9b",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 68",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "4ee35a417ebd13fc",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "pH Sensor",
+        "label": "pH",
+        "format": "{{value}}",
+        "min": "5",
+        "max": "9",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "348f86608588d960",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Output Flow Sensor",
+        "label": "liters per minute",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 340,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "7ab4ff4662d6d111",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Liquid Level Sensor",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00f500",
+            "#e6e600",
+            "#ff0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 330,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "97fc5ae1e145bb3d",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Voltage Sensor",
+        "label": "Volt",
+        "format": "{{value}}",
+        "min": "240",
+        "max": "2000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "c14826cda45dc1ff",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Sensor",
+        "label": "Ampere",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "09213681d9e652ec",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Flame Detector",
+        "label": "nano meters wave length",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "260",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "4f63759ce3a3aa43",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature Sensor",
+        "label": "Celcius degree",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "28",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1540,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "5b012d1677419734",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Sensor",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "70",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1520,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "926bbadfaade86bf",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2 Sensor",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "350",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1510,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "bd18239688a876e7",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1070,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "2d239255c007fe98",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Smart Restoran",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Smart Restoran",
+        "payloadType": "str",
+        "x": 740,
+        "y": 1560,
+        "wires": [
+            [
+                "bd18239688a876e7"
+            ]
+        ]
+    },
+    {
+        "id": "cadf694f3fee8a0d",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1860,
+        "wires": [
+            [
+                "ab7cf65a8b6da3fd",
+                "baef4c5a806fead4",
+                "617d32602815c0fd"
+            ]
+        ]
+    },
+    {
+        "id": "da86a987ae62c86d",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "ab7cf65a8b6da3fd",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "pH Sensor",
+        "low": "5",
+        "high": "9",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 1800,
+        "wires": [
+            [
+                "da86a987ae62c86d"
+            ]
+        ]
+    },
+    {
+        "id": "1fca53c23d71ad34",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/ps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 2000,
+        "wires": [
+            [
+                "08be4be69eadbd83",
+                "f267a9912bd9a8a0"
+            ]
+        ]
+    },
+    {
+        "id": "08be4be69eadbd83",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 69",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "617d32602815c0fd",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flow Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 310,
+        "y": 1860,
+        "wires": [
+            [
+                "89fd1a29e9986806"
+            ]
+        ]
+    },
+    {
+        "id": "baef4c5a806fead4",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Liquid Level Sensor",
+        "low": "0",
+        "high": "12",
+        "inte": "true",
+        "property": "payload",
+        "x": 330,
+        "y": 1920,
+        "wires": [
+            [
+                "dc5c7955bde4c4a3"
+            ]
+        ]
+    },
+    {
+        "id": "89fd1a29e9986806",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "dc5c7955bde4c4a3",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "abdc404e9aaef4f8",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/fs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 2060,
+        "wires": [
+            [
+                "69d072a398f319e1",
+                "e1cf5f93c9272c47"
+            ]
+        ]
+    },
+    {
+        "id": "54480851d9ec9c5a",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/spp/lls",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 2120,
+        "wires": [
+            [
+                "8eedd760e9a0b4c9",
+                "1e5e93e75490b4ae"
+            ]
+        ]
+    },
+    {
+        "id": "69d072a398f319e1",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 70",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "8eedd760e9a0b4c9",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 71",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "a037c097bc0dd609",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "0b83f5c31abe70ae",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 390,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "b7d8d3de3ca363a1",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Deteksi Musim",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Deteksi Musim",
+        "payloadType": "str",
+        "x": 140,
+        "y": 1700,
+        "wires": [
+            [
+                "a037c097bc0dd609"
+            ]
+        ]
+    },
+    {
+        "id": "7341a16591275b7f",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "d97672ad06295ac4",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1070,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "2b2554d26c6bc9f0",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Deteksi Hasil Penjualan Berfluktuasi",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Deteksi Hasil Penjualan Berfluktuasi",
+        "payloadType": "str",
+        "x": 810,
+        "y": 1700,
+        "wires": [
+            [
+                "7341a16591275b7f"
+            ]
+        ]
+    },
+    {
+        "id": "1ed9e7bcfe721f18",
+        "type": "ui_text",
+        "z": "f8a491e9b09ced6a",
+        "group": "4d3708b68ec92390",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1650,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "77a14ba78136698d",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "name": "Deteksi Jumlah Pengunjung Restoran ",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Deteksi Jumlah Pengunjung Restoran ",
+        "payloadType": "str",
+        "x": 1390,
+        "y": 1700,
+        "wires": [
+            [
+                "1ed9e7bcfe721f18"
+            ]
+        ]
+    },
+    {
+        "id": "ad8dfdab4e9df701",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 730,
+        "y": 1840,
+        "wires": [
+            [
+                "7bd6a74d9ffb218b",
+                "4bceac83fefc160c",
+                "bebed62f867bcb69"
+            ]
+        ]
+    },
+    {
+        "id": "c4996974ce1ea8f8",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "7bd6a74d9ffb218b",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Voltage Sensor",
+        "low": "240",
+        "high": "2000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1780,
+        "wires": [
+            [
+                "c4996974ce1ea8f8"
+            ]
+        ]
+    },
+    {
+        "id": "e7e76cc4997114b3",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/vs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 2000,
+        "wires": [
+            [
+                "a04b845f96ef6880",
+                "4b338e5d55b6a492"
+            ]
+        ]
+    },
+    {
+        "id": "a04b845f96ef6880",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 72",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "bebed62f867bcb69",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Current Sensor",
+        "low": "10",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1840,
+        "wires": [
+            [
+                "2ca9c8eed86435c8"
+            ]
+        ]
+    },
+    {
+        "id": "4bceac83fefc160c",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Flame Detector",
+        "low": "0",
+        "high": "260",
+        "inte": "true",
+        "property": "payload",
+        "x": 920,
+        "y": 1900,
+        "wires": [
+            [
+                "266afababcd11664"
+            ]
+        ]
+    },
+    {
+        "id": "2ca9c8eed86435c8",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/cs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "266afababcd11664",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1140,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "648461f46986cfbb",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "smp/ps/cs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 2060,
+        "wires": [
+            [
+                "b21d3cf32d322869",
+                "12fd595513807571"
+            ]
+        ]
+    },
+    {
+        "id": "4391f95acd3656be",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ps/fd",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 2120,
+        "wires": [
+            [
+                "f7d987384dd88176",
+                "bbbf1d452a899ee2"
+            ]
+        ]
+    },
+    {
+        "id": "b21d3cf32d322869",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 73",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "f7d987384dd88176",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 74",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "2a45c1607a11ceae",
+        "type": "inject",
+        "z": "f8a491e9b09ced6a",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1310,
+        "y": 1840,
+        "wires": [
+            [
+                "cf20c158df9f2e58",
+                "db4249351f68c8cf",
+                "39cb0eb7daea9f8d"
+            ]
+        ]
+    },
+    {
+        "id": "29ac283e71e3c0ef",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "cf20c158df9f2e58",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Temperature Sensor",
+        "low": "20",
+        "high": "28",
+        "inte": "true",
+        "property": "payload",
+        "x": 1520,
+        "y": 1780,
+        "wires": [
+            [
+                "29ac283e71e3c0ef"
+            ]
+        ]
+    },
+    {
+        "id": "a4d390fd29b33234",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/ts",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 2000,
+        "wires": [
+            [
+                "291f4470c019ab8b",
+                "1d4ab8dd7651fbdc"
+            ]
+        ]
+    },
+    {
+        "id": "291f4470c019ab8b",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 75",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "39cb0eb7daea9f8d",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "Humidity Sensor",
+        "low": "20",
+        "high": "70",
+        "inte": "true",
+        "property": "payload",
+        "x": 1500,
+        "y": 1840,
+        "wires": [
+            [
+                "7b77b0365a2a5533"
+            ]
+        ]
+    },
+    {
+        "id": "db4249351f68c8cf",
+        "type": "random",
+        "z": "f8a491e9b09ced6a",
+        "name": "CO2 Sensor",
+        "low": "350",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 1900,
+        "wires": [
+            [
+                "136c26489d87fd49"
+            ]
+        ]
+    },
+    {
+        "id": "7b77b0365a2a5533",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "136c26489d87fd49",
+        "type": "mqtt out",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1750,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "e597be8042116345",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/hs",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1340,
+        "y": 2060,
+        "wires": [
+            [
+                "396d5fd5af99f535",
+                "0729095ee13faeeb"
+            ]
+        ]
+    },
+    {
+        "id": "3a606c9c8d653764",
+        "type": "mqtt in",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "topic": "sms/ac/co2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1330,
+        "y": 2120,
+        "wires": [
+            [
+                "2d26620939062c26",
+                "65f31ae9253c4b64"
+            ]
+        ]
+    },
+    {
+        "id": "396d5fd5af99f535",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "2d26620939062c26",
+        "type": "debug",
+        "z": "f8a491e9b09ced6a",
+        "name": "debug 77",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "f267a9912bd9a8a0",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "pH Sensor",
+        "label": "pH",
+        "format": "{{value}}",
+        "min": "5",
+        "max": "9",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "e1cf5f93c9272c47",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Output Flow Sensor",
+        "label": "liters per minute",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 340,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "1e5e93e75490b4ae",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "0b83f5c31abe70ae",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Liquid Level Sensor",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00f500",
+            "#e6e600",
+            "#ff0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 330,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "4b338e5d55b6a492",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Voltage Sensor",
+        "label": "Volt",
+        "format": "{{value}}",
+        "min": "240",
+        "max": "2000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "12fd595513807571",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Sensor",
+        "label": "Ampere",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "bbbf1d452a899ee2",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "d97672ad06295ac4",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Flame Detector",
+        "label": "nano meters wave length",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "260",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "1d4ab8dd7651fbdc",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature Sensor",
+        "label": "Celcius degree",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "28",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1540,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "0729095ee13faeeb",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Sensor",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "70",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1520,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "65f31ae9253c4b64",
+        "type": "ui_gauge",
+        "z": "f8a491e9b09ced6a",
+        "name": "",
+        "group": "4d3708b68ec92390",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2 Sensor",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "350",
+        "max": "1000",
+        "colors": [
+            "#00fa00",
+            "#e6e600",
+            "#fa0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1510,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "c2989b0d4f894178",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "2ba6f22556d558f2",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "111d603c1f6d68cb",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "91fd18c3d2f1f7d8",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9ed486113db689e9",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "bfad81d886aa7982",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "eaaf8de34f881eff",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "0b83f5c31abe70ae",
+        "order": 15,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "109f3eebc4f6e98a",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "d97672ad06295ac4",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "ecef8eb218c120c3",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "d97672ad06295ac4",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "92057f3b992d0468",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "d97672ad06295ac4",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9d5c44f4026dbd16",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "d97672ad06295ac4",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "ae7a929593808d39",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "697eda16a30dbc5a",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "fefef370a70410ba",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "c54a8b95d6195c08",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "f7f3cab5d98caf2b",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "27d1fbdb4c83e299",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "055b3e3cb656ac9c",
+        "type": "ui_spacer",
+        "z": "f8a491e9b09ced6a",
+        "name": "spacer",
+        "group": "4d3708b68ec92390",
+        "order": 15,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "d97672ad06295ac4",
+        "type": "ui_group",
+        "name": "Mid",
+        "tab": "2968c7d7c516d60d",
+        "order": 2,
+        "disp": true,
+        "width": 3,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "727660ac399984c1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b83f5c31abe70ae",
+        "type": "ui_group",
+        "name": "Left",
+        "tab": "2968c7d7c516d60d",
+        "order": 1,
+        "disp": true,
+        "width": 3,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4d3708b68ec92390",
+        "type": "ui_group",
+        "name": "Right",
+        "tab": "2968c7d7c516d60d",
+        "order": 3,
+        "disp": true,
+        "width": 3,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2968c7d7c516d60d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
